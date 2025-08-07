@@ -4,6 +4,9 @@ import { Nunito } from "next/font/google";
 
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
+import ClientOnly from "./components/ClientOnly";
+
+import RegisterModel from "./components/modals/RegisterModel";
 
 
 const font=Nunito({
@@ -20,7 +23,11 @@ export default function RootLayout({
       <body
         className={font.className}
       >
-        <Navbar/>
+        <ClientOnly>
+                <RegisterModel/>
+                <Navbar/>
+        </ClientOnly>
+    
         {children}
       </body>
     </html>
