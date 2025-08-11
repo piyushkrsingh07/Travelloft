@@ -135,6 +135,7 @@ if(!isOpen){
            
 
                  </div>
+                 {footer}
                </div>
 
             </div>
