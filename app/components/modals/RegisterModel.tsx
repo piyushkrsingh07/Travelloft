@@ -38,7 +38,7 @@ const RegisterModel=()=>{
             registerModal.onClose()
         })
         .catch((error)=>{
-            toast.error('Something Went Wrongn')
+            toast.error('Something went wrong')
         })
         .finally(()=>{
             setIsLoading(false)
