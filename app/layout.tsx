@@ -8,6 +8,7 @@ import ClientOnly from "./components/ClientOnly";
 
 import RegisterModel from "./components/modals/RegisterModel";
 import ToasterProvider from "./providers/ToasterProvider";
+import LoginModal from "./components/modals/LoginModel";
 
 
 const font=Nunito({
@@ -27,6 +28,7 @@ export default function RootLayout({
         <ClientOnly>
                 <ToasterProvider/>
                 <RegisterModel/>
+                <LoginModal/>
                 <Navbar/>
         </ClientOnly>
     
