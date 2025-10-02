@@ -12,9 +12,9 @@ import LoginModal from "./components/modals/LoginModel";
 import getCurrentUser from "./actions/getCurrentUser";
 
 
-// const font=Nunito({
-//   subsets:["latin"]
-// })
+const font=Nunito({
+  subsets:["latin"]
+})
 
 export default async function RootLayout({
   children,
@@ -26,7 +26,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        // className={font.className}
+        className={font.className}
       >
         <ClientOnly>
                 <ToasterProvider/>
