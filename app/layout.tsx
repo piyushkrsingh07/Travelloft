@@ -9,27 +9,30 @@ import ClientOnly from "./components/ClientOnly";
 import RegisterModel from "./components/modals/RegisterModel";
 import ToasterProvider from "./providers/ToasterProvider";
 import LoginModal from "./components/modals/LoginModel";
+import getCurrentUser from "./actions/getCurrentUser";
 
 
-const font=Nunito({
-  subsets:["latin"]
-})
+// const font=Nunito({
+//   subsets:["latin"]
+// })
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const currentUser=await getCurrentUser()
   return (
     <html lang="en">
       <body
-        className={font.className}
+        // className={font.className}
       >
         <ClientOnly>
                 <ToasterProvider/>
                 <RegisterModel/>
                 <LoginModal/>
-                <Navbar/>
+                <Navbar currentUser={currentUser}/>
         </ClientOnly>
     
         {children}

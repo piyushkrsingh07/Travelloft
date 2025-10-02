@@ -6,10 +6,10 @@ interface LoginModelStore{
     onClose:()=>void
 }
 
-const useRegisterModel=create<LoginModelStore>((set)=>({
+const useLoginModel=create<LoginModelStore>((set)=>({
     isOpen:false,
     onOpen:()=>set({isOpen:true}),
     onClose:()=>set({isOpen:false})
 }))
 
-export default useRegisterModel
+export default useLoginModel

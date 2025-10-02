@@ -6,8 +6,17 @@ import Avatar from '../Avatar'
 import MenuItem from './MenuItem'
 import useRegisterModel from '@/app/hooks/useRegisterModel'
 import useLoginModel from '@/app/hooks/useLoginModel'
+import { User } from '@prisma/client'
+import { signOut } from 'next-auth/react'
+import { SafeUser } from '@/app/types'
 
-const UserMenu = () => {
+interface UserMenuProps{
+  currentUser?:SafeUser | null
+}
+
+const UserMenu:React.FC<UserMenuProps> = ({
+  currentUser
+}) => {
 
     const [isOpen,setIsOpen]=useState(false)
     const loginModel=useLoginModel()
@@ -31,7 +40,7 @@ const UserMenu = () => {
         >
           <AiOutlineMenu/>
            <div className='hidden md:block'>
-            <Avatar/>
+            <Avatar src={currentUser?.image}/>
            </div>
         </div>
 
@@ -43,7 +52,35 @@ const UserMenu = () => {
           <div
           className='flex flex-col cursor-pointer'
           >
-            <>
+            {currentUser?(
+              <>            <MenuItem  
+            onClick={()=>{}}
+            label="My Trips"
+            />
+            <MenuItem 
+           onClick={()=> {}}
+            label="My favourites"
+            
+            />
+            <MenuItem 
+           onClick={()=> {}}
+            label="My reservations"
+            
+            />
+           <MenuItem 
+           onClick={()=> {}}
+            label="Travelloft my home"
+            />
+            <hr/>
+          <MenuItem 
+           onClick={()=> signOut()}
+            label="logout"
+            />
+            
+            
+            </>
+            ):(
+                        <>
 
             <MenuItem  
             onClick={()=>loginModel.onOpen()}
@@ -55,6 +92,8 @@ const UserMenu = () => {
             
             />
             </>
+            )}
+
 
 
 
