@@ -6,7 +6,7 @@ import Avatar from '../Avatar'
 import MenuItem from './MenuItem'
 import useRegisterModel from '@/app/hooks/useRegisterModel'
 import useLoginModel from '@/app/hooks/useLoginModel'
-import { User } from '@prisma/client'
+
 import { signOut } from 'next-auth/react'
 import { SafeUser } from '@/app/types'
 
