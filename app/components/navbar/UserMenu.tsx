@@ -9,6 +9,7 @@ import useLoginModel from '@/app/hooks/useLoginModel'
 
 import { signOut } from 'next-auth/react'
 import { SafeUser } from '@/app/types'
+import useRentModal from '@/app/hooks/useRentModel'
 
 interface UserMenuProps{
   currentUser?:SafeUser | null
@@ -21,15 +22,24 @@ const UserMenu:React.FC<UserMenuProps> = ({
     const [isOpen,setIsOpen]=useState(false)
     const loginModel=useLoginModel()
     const registerModel=useRegisterModel()
+    const rentModal=useRentModal()
 
     const toggleOpen=useCallback(()=>{
        setIsOpen((prev)=>!prev)
     },[])
+
+    const rent=useCallback(()=>{
+       if(!currentUser){
+        return loginModel.onOpen()
+       }
+        rentModal.onOpen()
+
+    },[currentUser,loginModel,rentModal])
   return (
     <div className='relative'> 
       <div className='flex flex-row items-center gap-3'>
         <div
-        onClick={()=>{}}
+        onClick={rent}
         className='hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer' >
            Travelloft Your Home  
         </div>
@@ -68,7 +78,7 @@ const UserMenu:React.FC<UserMenuProps> = ({
             
             />
            <MenuItem 
-           onClick={()=> {}}
+           onClick={()=> rentModal.onOpen()}
             label="Travelloft my home"
             />
             <hr/>
