@@ -9,6 +9,8 @@ const Logo = () => {
     const router=useRouter()
   return (
   <Image 
+
+  onClick={()=>router.push('/')}
   alt="logo"
   className='hidden md:block cursor-pointer py-4 mx-2'
   height="110"

@@ -35,3 +35,4 @@ export default async function getCurrentUser(){
 }
 
 
+//to get rid of the error that nly plain objects can be passed
