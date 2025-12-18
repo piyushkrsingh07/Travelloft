@@ -214,3 +214,4 @@ export function getPrismaClientClass(dirname: string): PrismaClientConstructor {
   config.dirname = dirname
   return runtime.getPrismaClient(config) as unknown as PrismaClientConstructor
 }
+
